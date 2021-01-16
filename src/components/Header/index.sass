@@ -1,0 +1,25 @@
+.logotype
+  display: inline-block
+  height: 74px
+  width: 74px
+  transition: .3s ease-in
+
+.header 
+  top: 30px
+  position: absolute
+  left: 0
+  width: 100%
+
+.header-slick
+  position: fixed
+  z-index: 1000
+  top: -74px
+  transition: .3s ease-in
+  opacity: 0
+  &__active
+    background: #000
+    top: 0
+    opacity: 1
+    .logotype
+      height: 50px
+      width: 50px

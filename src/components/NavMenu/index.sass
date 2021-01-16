@@ -1,0 +1,34 @@
+@import '../../mixins'
+  
+.nav-menu
+  width: 303px
+  a
+    display: inline-block
+    position: relative
+    font-size: 14px
+    color: #ffffff
+    transition: .2s linear
+    padding: 7px 0
+    font-weight: 200
+    &::after
+      content: ''
+      width: 0px
+      height: 1px
+      background: #fff
+      position: absolute
+      bottom: 0
+      left: 0
+      transition: .3s linear
+    &:hover
+      opacity: 0.5
+      &::after
+        opacity: .5
+        width: 100%
+  @include xs 
+    visibility: hidden
+  @include sm 
+    visibility: hidden
+  @include md 
+    visibility: visible
+  @include xl 
+    visibility: visible

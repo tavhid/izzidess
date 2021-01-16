@@ -1,0 +1,28 @@
+@import '../../mixins'
+  
+.section-title
+  padding: 150px 0 100px 0
+  text-align: center
+  cursor: default
+  &::selection
+    user-select: none
+  h2
+    font-size: 72px
+    font-weight: 100
+    opacity: .1
+    @include xs
+      font-size: 36px
+    @include sm
+      font-size: 54px
+    @include md
+      font-size: 72px
+  p
+    font-size: 18px
+    font-weight: 100
+    text-transform: lowercase
+    @include xs
+      font-size: 12px
+    @include sm
+      font-size: 14px
+    @include md
+      font-size: 18px

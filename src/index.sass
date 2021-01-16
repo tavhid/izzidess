@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap')
+@import 'mixins'
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  text-decoration: none
+  list-style: none
+  
+.container
+  margin: 0 auto
+  @include xs
+    padding: 0 28px
+  @include sm
+    max-width: 540px
+  @include md
+    max-width: 720px
+  @include xl
+    max-width: 1140px
+
+body, html
+  scroll-behavior: smooth !important
+body
+  min-height: 600vh
+  background: #000
+  color: #ffffff
+  font-family: Montserrat, sans-serif
+
+.d-flex
+  display: flex
+
+.f-wrap
+  flex-wrap: wrap
+
+.f-column
+  flex-direction: column
+
+.justify-content-between
+  justify-content: space-between
+
+.justify-content-around
+  justify-content: space-around
+
+.justify-content-end
+  justify-content: flex-end
+
+.align-items-center
+  align-items: center
+
+section 
+  height: 100vh
+  display: flex
+  justify-content: center
+  align-items: center

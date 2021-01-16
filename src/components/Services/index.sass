@@ -1,0 +1,95 @@
+@import '../../mixins'
+.services
+  display: flex
+  justify-content: center
+  overflow: hidden
+  position: relative
+  @include xs
+    flex-direction: column
+    height: calc(540px * 3)
+  @include sm
+    flex-direction: column
+    height: calc(640px * 3)
+  @include md
+    height: 640px
+    flex-direction: row
+  .serBg
+    width: 100%
+    height: 100%
+    max-width: 1620px
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translateX(-50%)
+    z-index: 150
+    display: none
+    @include xs
+      visibility: hidden
+    @include sm
+      visibility: hidden
+    @include md
+      visibility: visible
+  .service
+    width: calc(100%/3)
+    display: flex
+    justify-content: center
+    height: 100%
+    align-items: center
+    position: relative
+    overflow: hidden
+    border-right: 0.5px solid rgba(255, 255, 255, 0.2)
+    @include xs
+      max-width: 100% 
+      width: 100%
+    @include sm
+      max-width: 100% 
+      width: 100%
+    @include md
+      max-width: 540px
+    &:last-child
+      border: none
+    &::after
+      content: ""
+      width: 100%
+      height: 100%
+      position: absolute
+      z-index: 180
+      top: 0
+      left: 0
+      background: rgba(0,0,0,.8)
+    img
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      z-index: 100
+    .title
+      text-align: center
+      z-index: 200
+      p
+        font-weight: 200
+        font-size: 16px
+        text-transform: uppercase
+        letter-spacing: 3px
+        word-spacing: 10px
+      h3
+        font-size: 36px
+
+.my-fadeIn
+  animation: myFadeIn forwards .3s ease-in
+.my-fadeOut
+  animation: myFadeOut forwards .3s ease-in
+
+@keyframes myFadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1
+
+@keyframes myFadeOut
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+    

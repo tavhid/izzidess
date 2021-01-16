@@ -1,0 +1,94 @@
+@import '../../mixins'
+  
+.first-screen
+  height: 100vh
+  position: relative
+  &__middle
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    display: flex
+    flex-direction: column
+    @include xs
+      justify-content: space-between
+      align-items: center
+    @include sm
+      width: 363px
+    @include md
+      width: 460px
+    @include xl
+      width: 643px
+  &__title
+    display: inline-block
+    font-weight: 100
+    @include xs
+      text-align: center
+      font-size: 36px
+    @include sm
+      font-size: 36px
+    @include md
+      font-size: 48px
+    @include xl
+      font-size: 64px
+  &__btn
+    display: inline-block
+    text-align: center
+    margin-top: 30px
+    background: none
+    color: #ffffff
+    text-shadow: 0 0 10px rgba(#fff, .3)
+    opacity: .5
+    position: relative
+    @include xs
+      width: 150px
+      font-size: 14px
+      line-height: 30px
+    @include sm
+      width: 200px
+      line-height: 30px
+    @include md
+      width: 260px
+    @include xl
+      width: 350px
+      font-size: 16px
+      line-height: 35px
+    .bd-t, .bd-r, .bd-b, .bd-l 
+      background: #fff
+      position: absolute
+      transition: .5s ease-in-out
+    .bd-t, .bd-b
+      height: 1px
+      width: 100% 
+    .bd-r, .bd-l
+      width: 1px
+      height: 100%
+      transition-delay: .5s
+    .bd-t
+      top: 0
+      left: 0 
+    .bd-b
+      bottom: 0
+      right: 0
+    .bd-l
+      top: 0
+      left: 0
+    .bd-r
+      bottom: 0
+      right: 0
+    &:hover
+      opacity: 1
+      border-color: transparent
+      @include sm
+        .bd-t, .bd-b
+          width: 0 
+        .bd-l, .bd-r
+          height: 0 
+  &__social-group
+    position: absolute
+    display: flex
+    justify-content: space-between
+    width: 165px
+    bottom: 40px
+      
+  
+      
