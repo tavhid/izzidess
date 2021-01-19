@@ -1,8 +1,7 @@
 import React from 'react'
-import video from './main.mp4'
 import './index.sass'
 
-const BackgroundVideo = () => {
+const BackgroundVideo = ({video}) => {
   return (
     <div className='video'>
       <video 

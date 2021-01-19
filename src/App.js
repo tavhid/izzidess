@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import ContactList from "./components/ContactList";
 import FirstScreen from "./components/FirstScreen";
 import Footer from "./components/Footer";
@@ -6,32 +6,66 @@ import Map from "./components/Map";
 import Projects from "./components/Projects";
 import SectionTitle from "./components/SectionTitle";
 import Services from "./components/Services";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import FuckTheSite from "./components/FuckTheSite";
 
 function App() {
+  const [data, setData] = useState({})
+  const [dataLoading, setDataLoading] = useState(true)
+
+  useEffect(() => {
+    fetch('http://192.168.0.101:5000/api/')
+      .then(res => res.json())
+      .then(json => {
+        setData(json)
+        setTimeout(() => {
+          setDataLoading(false)
+        }, 300)
+      })
+  }, [])
+
+  if (dataLoading) 
+    return <p className="loading">Loading</p>
+  
   return (
-    <div className="App">
-      <FirstScreen />
-      <SectionTitle 
-        id='services'
-        title='Наши услуги'
-        subTitle='мы предоставляем вам следующие услуги' 
-      />
-      <Services />
-      <SectionTitle 
-        id='projects'
-        title='Проекты'
-        subTitle='наши готовые проекты дизайна интерьеров' 
-      /> 
-      <Projects />
-      <SectionTitle 
-        id='contact'
-        title='Наши контакты'
-        subTitle='готовы устроить себе лучший интерьер?' 
-      /> 
-      <ContactList />
-      <Map />
-      <Footer />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/fuck-the-site">
+          <FuckTheSite data={data} />
+        </Route>
+        <Route>
+          {data.IsWebsiteActive ?
+            <div className="App">
+              <FirstScreen data={data.main} video={data.services.video} />
+              <SectionTitle 
+                id='services'
+                title='Наши услуги'
+                subTitle='мы предоставляем вам следующие услуги'
+              />
+              <Services data={data.services} />
+              <SectionTitle 
+                id='projects'
+                title='Проекты'
+                subTitle='наши готовые проекты дизайна интерьеров'
+              />
+              <Projects filters={data.filters} projects={data.projects} />
+              <SectionTitle 
+                id='contact'
+                title='Наши контакты'
+                subTitle='готовы устроить себе лучший интерьер?' 
+              />
+              <ContactList data={data.contact} />
+              <Map />
+              <Footer data={data.contact} />
+            </div>
+          :
+            <div className="fuck-the-site">
+              <h1>Оплатите стоимоть сайта</h1>
+            </div>
+          }
+        </Route>
+      </Switch>
+    </Router>
 
   );
 }

@@ -13,12 +13,7 @@ const ContactItem = ({img, text}) => {
   )
 }
 
-const ContactList = () => {
-  const [data, setData] = useState({
-    location: 'Душанбе, ул. Фотех Ниези 25',
-    time: 'C 10:00 до 21:00',
-    phone: '+992 98 736 53 65'
-  })
+const ContactList = ({data}) => {
 
   return (
     <div className="contact-list">

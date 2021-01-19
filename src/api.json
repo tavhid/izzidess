@@ -1,0 +1,66 @@
+{
+  "main": {
+    "title" : "Дизайн интерьера в Душанбе",
+    "button_txt": "Заказать дизайн",
+    "link_telegram": "#",
+    "link_facebook": "#",
+    "link_instagram": "#"
+  },
+  "services": {
+    "_1": "./images/1.png",
+    "_2": "./images/2.png",
+    "_3": "./images/3.png",
+    "mini_1": "./images/1_1.png",
+    "mini_2": "./images/2_2.png",
+    "mini_3": "./images/3_3.png",
+    "title_1": "Commerical",
+    "subTitle_1": "INTERIOR DESIGN",
+    "title_2": "Residential",
+    "subTitle_2": "INTERIOR DESIGN",
+    "title_3": "Architecture",
+    "subTitle_3": ""
+  },
+  "filters": [
+    {"id": "1", "name": "все"},
+    {"id": "2", "name": "тёмный"},
+    {"id": "3", "name": "ламповое"},
+    {"id": "4", "name": "светлый"},
+    {"id": "5", "name": "дерево"},
+    {"id": "6", "name": "черный"}
+  ],
+  "projects": [
+    {
+      "id": "1", 
+      "src": "./images/img1.png", 
+      "tag": "тёмный", 
+      "title": "Hello world", 
+      "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "shortTitle": "Short Title",
+      "shortSubTitle": "Short SubTitle" 
+    },
+    {
+      "id": "1", 
+      "src": "./images/img2.png", 
+      "tag": "белый", 
+      "title": "Hello world", 
+      "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "shortTitle": "Short Title",
+      "shortSubTitle": "Short SubTitle" 
+    },
+    {
+      "id": "1", 
+      "src": "./images/img3.png", 
+      "tag": "тёмный", 
+      "title": "Hello world", 
+      "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "shortTitle": "Short Title",
+      "shortSubTitle": "Short SubTitle" 
+    }
+  ],
+  "contact": {
+    "time": "C 10:00 до 21:00",
+    "location": "Душанбе, ул. Фотех Ниези 25",
+    "phone": "+992 987 365 365",
+    "email": "alyamovd@gmail.com"
+  }
+}
