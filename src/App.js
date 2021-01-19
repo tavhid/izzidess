@@ -12,9 +12,11 @@ import FuckTheSite from "./components/FuckTheSite";
 function App() {
   const [data, setData] = useState({})
   const [dataLoading, setDataLoading] = useState(true)
+  const url = 'https://www.broskev.ml/index.wsgi/api/'
 
   useEffect(() => {
-    fetch('http://192.168.0.101:5000/api/')
+    // yarn run build
+    fetch(url)
       .then(res => res.json())
       .then(json => {
         setData(json)
@@ -31,9 +33,9 @@ function App() {
     <Router>
       <Switch>
         <Route path="/fuck-the-site">
-          <FuckTheSite data={data} />
+          <FuckTheSite url={url+'turnoff'} data={data} />
         </Route>
-        <Route>
+        <Route exact path="/">
           {data.IsWebsiteActive ?
             <div className="App">
               <FirstScreen data={data.main} video={data.services.video} />

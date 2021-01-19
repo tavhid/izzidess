@@ -3,7 +3,7 @@ import './index.sass'
 
 const Image = ({img, tag, handleSetMoreInfo}) => {
 
-  if (tag === 'все' || img.tag.indexOf(tag) !== -1) {
+  if (tag === 'все' || img.tag.toLowerCase().indexOf(tag) !== -1) {
     return (
       <a href="#moreInfo">
         <div 
@@ -36,117 +36,6 @@ const Filter = ({name, tag, handleSetTag }) => {
   )
 }
 
-const images = [
-  { 
-    id: '1', 
-    imageName: 'img1.png', 
-    tag: 'тёмный', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '2', 
-    imageName: 'img2.png', 
-    tag: 'светлый', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '3', 
-    imageName: 'img3.png', 
-    tag: 'дерево светлый', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle'  
-  },
-  { 
-    id: '4', 
-    imageName: 'img4.png', 
-    tag: 'ламповое', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '5', 
-    imageName: 'img5.png', 
-    tag: 'ламповое светлый',
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle'  
-  },
-  { 
-    id: '6', 
-    imageName: 'img6.png', 
-    tag: 'ламповое', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '7', 
-    imageName: 'img7.png', 
-    tag: 'дерево светлый',
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-  shortSubTitle: 'Short SubTitle'  
-  },
-  { 
-    id: '8', 
-    imageName: 'img8.png', 
-    tag: 'ламповое', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '9', 
-    imageName: 'img9.png', 
-    tag: 'светлый', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '10', 
-    imageName: 'img10.png', 
-    tag: 'светлый', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '11', 
-    imageName: 'img11.png', 
-    tag: 'тёмный', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  },
-  { 
-    id: '12', 
-    imageName: 'img12.png', 
-    tag: 'тёмный', 
-    title:'Hello world', 
-    content:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.',
-    shortTitle: 'Short Title',
-    shortSubTitle: 'Short SubTitle' 
-  }
-]
-
 const Projects = ({ filters, projects }) => {
   const [tag, setTag] = useState('все')
   const [filteredImages, setFilteredImages] = useState([])
@@ -157,7 +46,9 @@ const Projects = ({ filters, projects }) => {
     tag === 'все' ? 
       setFilteredImages(projects) 
     : 
-      setFilteredImages(projects.filter(img => img.tag.indexOf(tag) !== -1))
+      setFilteredImages(projects.filter(img =>
+        img.tag.toLowerCase().indexOf(tag) !== -1
+      ))
   }, [tag])
 
   function funcSetTag (id) {
@@ -174,7 +65,7 @@ const Projects = ({ filters, projects }) => {
           { 
             filters.map(filter => 
               <Filter 
-                name={filter.name} 
+                name={filter.name.toLowerCase()} 
                 tag={tag} 
                 handleSetTag={funcSetTag} 
                 key={filter.id} 
@@ -200,7 +91,7 @@ const Projects = ({ filters, projects }) => {
             filteredImages.map(image => 
               <Image 
                 img={image} 
-                tag={tag} 
+                tag={tag.toLowerCase()} 
                 key={image.id} 
                 handleSetMoreInfo={
                   (state, name) => {
