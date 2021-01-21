@@ -40,17 +40,17 @@ function App() {
             <div className="App">
               <FirstScreen data={data.main} video={data.services.video} />
               <SectionTitle 
-                id='services'
-                title='Наши услуги'
-                subTitle='мы предоставляем вам следующие услуги'
-              />
-              <Services data={data.services} />
-              <SectionTitle 
                 id='projects'
                 title='Проекты'
                 subTitle='наши готовые проекты дизайна интерьеров'
               />
               <Projects filters={data.filters} projects={data.projects} />
+              <SectionTitle 
+                id='services'
+                title='Наши услуги'
+                subTitle='мы предоставляем вам следующие услуги'
+              />
+              <Services data={data.services} />
               <SectionTitle 
                 id='contact'
                 title='Наши контакты'

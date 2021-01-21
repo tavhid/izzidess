@@ -30,14 +30,13 @@
     @include md
       visibility: visible
   .service
-    width: calc(100%/3)
+    width: calc(100%/3.33)
     display: flex
     justify-content: center
     height: 100%
     align-items: center
     position: relative
     overflow: hidden
-    border-right: 0.5px solid rgba(255, 255, 255, 0.2)
     @include xs
       max-width: 100% 
       width: 100%
@@ -48,15 +47,26 @@
       max-width: 540px
     &:last-child
       border: none
+      &::before
+        width: 0
     &::after
       content: ""
-      width: 100%
+      width: calc(100% + 10px)
       height: 100%
       position: absolute
       z-index: 180
       top: 0
       left: 0
       background: rgba(0,0,0,.8)
+    &::before
+      content: ''
+      width: 1px
+      height: 100%
+      position: absolute
+      top: 0
+      right: 0
+      z-index: 170
+      background: rgba(255,255,255,.3)
     img
       position: absolute
       width: 100%
