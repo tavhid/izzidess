@@ -5,23 +5,27 @@ import BackgroundVideo from '../BackgroundVideo'
 import telegramIco from './telegram.png'
 import facebookIco from './facebook.png'
 import instagramIco from './instagram.png'
+import { useSelector } from 'react-redux'
 
 const FirstScreen = ({data, video}) => {
+
+  const lang = useSelector(state => state.lang)
+
   return (
     <div className="first-screen">
       <BackgroundVideo video={video} />
-      <Header />
+      <Header navActive={true} />
       <div className="container">
         <div className="first-screen__middle">
           <h1 className='first-screen__title'>
-            { data.title }
+            { lang ==='en' ? data.title_en : data.title_ru }
           </h1>
           <a href='#contact' className="first-screen__btn button">
             <span className='bd-t'></span>
             <span className='bd-r'></span>
             <span className='bd-b'></span>
             <span className='bd-l'></span>
-            { data.button_txt }
+            { lang ==='en' ? data.button_txt_en : data.button_txt_ru }
           </a>
         </div>
         <div className="first-screen__social-group">

@@ -1,35 +1,39 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './index.sass'
+import { useSelector } from 'react-redux'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
-const Image = ({img, tag, handleSetMoreInfo}) => {
+const Image = ({img, tag, filters}) => {
+  const lang = useSelector(state => state.lang)
 
-  if (tag === 'все' || img.tag.toLowerCase().indexOf(tag) !== -1) {
+  if (tag === '0' || filters) {
     return (
-      <a href="#moreInfo">
-        <div 
-          className={'img-block'} 
-          onClick={() => handleSetMoreInfo(true, img.src)}
-        >
-          <div className="mid-text">
-            <span className="shortTitle">{img.shortTitle}</span>
-            <span className="shortSubTitle">{img.shortSubTitle}</span>
-          </div>
-          <img src={img.src} alt=""/>
+      <Link to={`/project/${img.id}`} className={'img-block'} >
+        <div className="mid-text">
+          <span className="shortTitle">
+            {lang === 'en' ? img.shortTitle_en : img.shortTitle_ru}
+          </span>
+          <span className="shortSubTitle">
+            {lang === 'en' ? img.shortSubTitle_en : img.shortSubTitle_ru}
+          </span>
         </div>
-      </a>
+        <img src={img.src} alt=""/>
+      </Link>
     )
   }
   else 
     return <></> 
 }
 
-const Filter = ({name, tag, handleSetTag }) => {
-  const classes = name===tag ? 'filter active' : 'filter'
+const Filter = ({name, tag, handleSetTag, id}) => {
+  const classes = id===tag ? 'filter active' : 'filter'
 
   return (
     <button 
       className={classes}
-      onClick={() => handleSetTag(name.toLowerCase())}
+      onClick={() => handleSetTag(id)}
     >
       {name.toLowerCase()}
     </button>
@@ -37,35 +41,36 @@ const Filter = ({name, tag, handleSetTag }) => {
 }
 
 const Projects = ({ filters, projects }) => {
-  const [tag, setTag] = useState('все')
+  const lang = useSelector(state => state.lang)
+  const [tag, setTag] = useState('0')
   const [filteredImages, setFilteredImages] = useState([])
-  const [moreInfo, setMoreInfo] = useState(false)
-  const [selectedImg, setSelectedImg] = useState('')
+
+  useEffect(() => {
+    Aos.init()
+  }, []);
 
   useEffect( () => {
-    tag === 'все' ? 
+    tag === '0' ? 
       setFilteredImages(projects) 
     : 
       setFilteredImages(projects.filter(img =>
-        img.tag.toLowerCase().indexOf(tag) !== -1
+        img.tag.indexOf(tag) !== -1
       ))
   }, [tag])
 
   function funcSetTag (id) {
     setTag(id)
-    setMoreInfo(false)
   }
 
-  const selected = projects.find(img => img.src === selectedImg)
-
   return (
-    <div id="moreInfo" className='projects'>
+    <div data-aos='fade-right' data-aos-duration="700" id="moreInfo" className='projects'>
       <div className="container">
         <div className="filters">
           { 
             filters.map(filter => 
               <Filter 
-                name={filter.name.toLowerCase()} 
+                name={lang === 'en' ? filter.name_en : filter.name_ru}
+                id={filter.id} 
                 tag={tag} 
                 handleSetTag={funcSetTag} 
                 key={filter.id} 
@@ -74,31 +79,14 @@ const Projects = ({ filters, projects }) => {
           }
         </div>
 
-        <div className="more-info">
-          { moreInfo &&
-            <>
-              <img src={selected.src} alt=""/>
-              <div className="info-text">
-                <h3 className="title">{selected.title}</h3>
-                <p className="content">{selected.content}</p>
-              </div>
-            </>
-          }
-        </div>
-
         <div className="img-box">
           { 
             filteredImages.map(image => 
               <Image 
                 img={image} 
-                tag={tag.toLowerCase()} 
+                tag={tag} 
                 key={image.id} 
-                handleSetMoreInfo={
-                  (state, name) => {
-                    setMoreInfo(state)
-                    setSelectedImg(name)
-                  }
-                }
+                filters={filters}
               />
             ) 
           }

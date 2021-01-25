@@ -37,6 +37,7 @@
     align-items: center
     position: relative
     overflow: hidden
+    color: #ffffff
     @include xs
       max-width: 100% 
       width: 100%
@@ -45,6 +46,8 @@
       width: 100%
     @include md
       max-width: 540px
+    &:active
+      color: #ffffff
     &:last-child
       border: none
       &::before

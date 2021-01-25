@@ -1,7 +1,9 @@
 {
   "main": {
-    "title" : "Дизайн интерьера в Душанбе",
-    "button_txt": "Заказать дизайн",
+    "title_en": "Interior design in Dushanbe",
+    "title_ru": "Дизайн интерьера в Душанбе",
+    "button_txt_en": "Order a design",
+    "button_txt_ru": "Заказать дизайн",
     "link_telegram": "#",
     "link_facebook": "#",
     "link_instagram": "#"
@@ -13,54 +15,113 @@
     "mini_1": "./images/1_1.png",
     "mini_2": "./images/2_2.png",
     "mini_3": "./images/3_3.png",
-    "title_1": "Commerical",
-    "subTitle_1": "INTERIOR DESIGN",
-    "title_2": "Residential",
-    "subTitle_2": "INTERIOR DESIGN",
-    "title_3": "Architecture",
-    "subTitle_3": ""
+    "title_1_en": "Commerical",
+    "subTitle_1_en": "INTERIOR DESIGN",
+    "title_2_en": "Residential",
+    "subTitle_2_en": "INTERIOR DESIGN",
+    "title_3_en": "Architecture",
+    "subTitle_3_en": "",
+    "title_1_ru": "Коммерческие",
+    "subTitle_1_ru": "Дизайны интерьера",
+    "title_2_ru": "Жилые",
+    "subTitle_2_ru": "Дизайны интерьера",
+    "title_3_ru": "Архитектура",
+    "subTitle_3_ru": ""
   },
   "filters": [
-    {"id": "1", "name": "все"},
-    {"id": "2", "name": "тёмный"},
-    {"id": "3", "name": "ламповое"},
-    {"id": "4", "name": "светлый"},
-    {"id": "5", "name": "дерево"},
-    {"id": "6", "name": "черный"}
+    {
+      "id": "0", 
+      "name_ru": "все",
+      "name_en": "all"
+    },
+    {
+      "id": "1", 
+      "name_ru": "Коммерческие проекты",
+      "name_en": "Commercial"
+    },
+    {
+      "id": "2", 
+      "name_ru": "Жилые проекты",
+      "name_en": "Residential"
+    },
+    {
+      "id": "3", 
+      "name_ru": "Архитектура",
+      "name_en": "Architecture"
+    }
   ],
   "projects": [
     {
       "id": "1", 
       "src": "./images/img1.png", 
-      "tag": "тёмный", 
-      "title": "Hello world", 
-      "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
-      "shortTitle": "Short Title",
-      "shortSubTitle": "Short SubTitle" 
+      "tag": "2", 
+      "title_en": "Hello world", 
+      "title_ru": "Привет мир", 
+      "content_en":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "content_ru":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "shortTitle_en": "Short Title 2",
+      "shortTitle_ru": "Заголовок",
+      "shortSubTitle_en": "Short SubTitle",
+      "shortSubTitle_ru": "Подзаголовок",
+      "allImages": [
+        "./images/img1.png",
+        "./images/img2.png",
+        "./images/img3.png",
+        "./images/img4.png",
+        "./images/img5.png",
+        "./images/img6.png"
+      ]
     },
     {
-      "id": "1", 
+      "id": "2", 
       "src": "./images/img2.png", 
-      "tag": "белый", 
-      "title": "Hello world", 
-      "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
-      "shortTitle": "Short Title",
-      "shortSubTitle": "Short SubTitle" 
+      "tag": "2 3", 
+      "title_en": "Hello world", 
+      "title_ru": "Привет мир", 
+      "content_en":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "content_ru":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "shortTitle_en": "Short Title 2",
+      "shortTitle_ru": "Заголовок",
+      "shortSubTitle_en": "Short SubTitle",
+      "shortSubTitle_ru": "Подзаголовок",
+      "allImages": [
+        "./images/img1.png",
+        "./images/img2.png",
+        "./images/img3.png",
+        "./images/img4.png",
+        "./images/img5.png",
+        "./images/img6.png"
+      ]
     },
     {
-      "id": "1", 
+      "id": "3", 
       "src": "./images/img3.png", 
-      "tag": "тёмный", 
-      "title": "Hello world", 
-      "content":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
-      "shortTitle": "Short Title",
-      "shortSubTitle": "Short SubTitle" 
+      "tag": "1", 
+      "title_en": "Hello world", 
+      "title_ru": "Привет мир", 
+      "content_en":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "content_ru":"Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt nihil cumque quos earum atque consectetur at ipsa, commodi rem soluta, deleniti inventore veritatis neque quia molestiae dicta facere facilis expedita.",
+      "shortTitle_en": "Short Title 2",
+      "shortTitle_ru": "Заголовок",
+      "shortSubTitle_en": "Short SubTitle",
+      "shortSubTitle_ru": "Подзаголовок",
+      "allImages": [
+        "./images/img1.png",
+        "./images/img2.png",
+        "./images/img3.png",
+        "./images/img4.png",
+        "./images/img5.png",
+        "./images/img6.png"
+      ]
     }
   ],
   "contact": {
-    "time": "C 10:00 до 21:00",
-    "location": "Душанбе, ул. Фотех Ниези 25",
+    "time_ru": "C 10:00 до 21:00",
+    "time_en": "from 10:00 to 21:00",
+    "location_ru": "Душанбе, ул. Фотех Ниези 25",
+    "location_en": "Dushanbe, st. Fotech Niezi 25",
     "phone": "+992 987 365 365",
-    "email": "alyamovd@gmail.com"
-  }
+    "mail": "alyamovd@gmail.com"
+  },
+  "IsWebsiteActive": "true"
 }
