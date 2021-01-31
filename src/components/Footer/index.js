@@ -4,8 +4,9 @@ import footerLogo from './IZZIDESS.png'
 import { useSelector } from 'react-redux'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
+import { Link } from 'react-router-dom'
 
-const Footer = ({data}) => {
+const Footer = ({ data, copyright, aboutfooter_en, aboutfooter_ru }) => {
   useEffect(() => {
     Aos.init()
   }, []);
@@ -18,9 +19,9 @@ const Footer = ({data}) => {
           <div className="col col-1">
             <img src={footerLogo} alt=""/>
             <span>
-              {lang === 'en' ? 'Interior design in Dushanbe' : 'Дизайн интерьера в Душанбе'}
+              {lang === 'en' ? aboutfooter_en : aboutfooter_ru}
             </span>
-            <span>© «IZZIDESS», 2020 </span>
+            <span>{ copyright }</span>
           </div>
           <div className="col col-2">
             <li>
@@ -37,6 +38,11 @@ const Footer = ({data}) => {
                 {lang === 'en' ? 'Telephone:' : 'Телефон:'}
               </span>
               <a href={`tel: ${data.phone}`}>{data.phone}</a>
+            </li>
+            <li>
+              <Link to='/about'>
+                {lang === 'en' ? 'About us' : 'О нас'}
+              </Link>
             </li>
           </div>
           <div className="row row-2">

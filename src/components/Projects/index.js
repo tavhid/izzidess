@@ -28,7 +28,7 @@ const Image = ({img, tag, filters}) => {
 }
 
 const Filter = ({name, tag, handleSetTag, id}) => {
-  const classes = id===tag ? 'filter active' : 'filter'
+  const classes = Number(id)===Number(tag) ? 'filter active' : 'filter'
 
   return (
     <button 
@@ -69,7 +69,7 @@ const Projects = ({ filters, projects }) => {
           { 
             filters.map(filter => 
               <Filter 
-                name={lang === 'en' ? filter.name_en : filter.name_ru}
+                name={lang === 'en' ? filter.name_en : filter.name_ru} 
                 id={filter.id} 
                 tag={tag} 
                 handleSetTag={funcSetTag} 

@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.sass'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const NavMenu = () => {
   const lang = useSelector(state => state.lang)
@@ -29,6 +30,11 @@ const NavMenu = () => {
         <a href='#contact'>
           {lang === 'en' ? titles.contacts_en : titles.contacts_ru}
         </a>
+      </li>
+      <li>
+        <Link to='/about'>
+          { lang === 'en' ? 'About' : 'О нас' }
+        </Link>
       </li>
     </div>
   )
