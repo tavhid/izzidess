@@ -24,7 +24,7 @@ function App() {
 
   const [dataLoading, setDataLoading] = useState(true)
   const url = 'https://www.broskev.ml/index.wsgi/api/'
-  const url_about = 'https://www.broskev.ml/index.wsgi/api/'
+  const url_about = 'https://www.broskev.ml/api/aboutus'
 
   useEffect(() => {
     fetch(url)

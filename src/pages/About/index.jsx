@@ -13,12 +13,12 @@ const About = ({ data }) => {
       <div className="container">
         <div className="title">
           <h1>        
-            { lang === 'en' ? 'About us' : 'О нас' }
+            { lang === 'en' ? data.title_en : data.title_ru }
           </h1>
         </div>
         <div className="content">
           <p>
-            { lang === 'en' ? 'Lorem' : 'Lorem' }
+            { lang === 'en' ? data.content_en : data.content_ru }
           </p>
         </div>
       </div>
