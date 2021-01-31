@@ -6,7 +6,7 @@ const Single = ({ data }) => {
   window.scrollTo(0, 0)
   const lang = useSelector(state => state.lang)
   const { id } = useParams()
-  const project = data.projects.find(project => project.id === id)
+  const project = data.projects.find(project => project.id === Number(id))
   const filters = data.filters.filter(filter => project.tag.indexOf(filter.id) !== -1)
 
   return (
@@ -17,20 +17,23 @@ const Single = ({ data }) => {
             {lang === 'en' ? project.title_en : project.title_ru}
           </h1>
           {
-            filters.map(filter => 
-              <Link
-                key={filter.id} 
-                to={`/projects/${filter.id}`}
-              >
-                # {lang === 'en' ? filter.name_en : filter.name_ru}
-              </Link>
-            )
+            filters.map(filter => {
+              if (filter.name_ru !== 'все') 
+                return(
+                  <Link
+                    key={filter.id} 
+                    to={`/projects/${filter.id}`}
+                  >
+                    # {lang === 'en' ? filter.name_en : filter.name_ru}
+                  </Link>
+                )
+            })
           }
         </div>
         <div className="images">
           {
             project.allImages.map((img, id) => 
-              <img src={`../${img}`} key={id} alt=""/>
+              <img src={`${img}`} key={id} alt=""/>
             )
           }
         </div>

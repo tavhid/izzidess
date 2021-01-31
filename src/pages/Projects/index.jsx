@@ -11,7 +11,7 @@ const ProjectsPage = ({ data }) => {
   const lang = useSelector(state => state.lang)
   const { id } = useParams()
 
-  const filter = data.filters.find(filter => filter.id===id)
+  const filter = data.filters.find(filter => filter.id===Number(id))
 
   const images = data.projects.filter(project => project.tag.indexOf(id) !== -1)
 
@@ -22,6 +22,7 @@ const ProjectsPage = ({ data }) => {
           <h1>{lang === 'en' ? filter.name_en : filter.name_ru}</h1>
         </div>
         <div className="images">
+          {images.length === 0 && <div>Нет проектов с таким тегом</div> }
           {images.map(image => 
             <Link to={`/project/${image.id}`} className={'img-block'} >
               <div className="mid-text">
@@ -32,7 +33,7 @@ const ProjectsPage = ({ data }) => {
                   {lang === 'en' ? image.shortSubTitle_en : image.shortSubTitle_ru}
                 </span>
               </div>
-              <img src={`../${image.src}`} alt=""/>
+              <img src={`${image.src}`} alt=""/>
             </Link>
           )}
         </div>

@@ -18,21 +18,21 @@ import LangBttn from "./components/LangBttn"
 function App() {
   const lang = useSelector(state => state.lang)
   // api -> {}
-  const [data, setData] = useState(api)
+  const [data, setData] = useState({})
   // false -> true
-  const [dataLoading, setDataLoading] = useState(false)
+  const [dataLoading, setDataLoading] = useState(true)
   const url = 'https://www.broskev.ml/index.wsgi/api/'
 
   useEffect(() => {
     // убрать комментарии
-    // fetch(url)
-    //   .then(res => res.json())
-    //   .then(json => {
-    //     setData(json)
-    //     setTimeout(() => {
-    //       setDataLoading(false)
-    //     }, 300)
-    //   })
+    fetch(url)
+      .then(res => res.json())
+      .then(json => {
+        setData(json)
+        setTimeout(() => {
+          setDataLoading(false)
+        }, 300)
+      })
   }, [])
   if (dataLoading) 
     return <p className="loading">Loading</p>
@@ -86,6 +86,11 @@ function App() {
                 <h1>Оплатите стоимоть сайта</h1>
               </div>
             }
+          </Route>
+          <Route path="/">
+            <div className='page-404 container'>
+              <h2>404 страница не найдена</h2>
+            </div>
           </Route>
         </Switch>
       </Router>
