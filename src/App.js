@@ -14,6 +14,7 @@ import api from './api.json'
 import ProjectsPage from "./pages/Projects"
 import { useSelector } from 'react-redux'
 import LangBttn from "./components/LangBttn"
+ASD
 import About from "./pages/About"
 
 function App() {
